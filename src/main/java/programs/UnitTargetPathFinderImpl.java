@@ -6,6 +6,22 @@ import com.battle.heroes.army.programs.UnitTargetPathFinder;
 
 import java.util.*;
 
+/**
+ * Реализация поиска кратчайшего пути между юнитами.
+ * <p>
+ * Использует алгоритм Дейкстры с приоритетной очередью для нахождения
+ * оптимального пути на игровом поле с учётом препятствий.
+ * <p>
+ * Веса рёбер:
+ * <ul>
+ *   <li>Прямые ходы (вверх/вниз/влево/вправо): 1.0</li>
+ *   <li>Диагональные ходы: √2 ≈ 1.414</li>
+ * </ul>
+ * <p>
+ * Алгоритмическая сложность: O(W × H × log(W × H)), где W=27, H=21.
+ *
+ * @see UnitTargetPathFinder
+ */
 public class UnitTargetPathFinderImpl implements UnitTargetPathFinder {
 
     private static final int WIDTH = 27;

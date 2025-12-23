@@ -124,16 +124,48 @@ src/test/java/programs/
 └── UnitTargetPathFinderImplTest.java
 ```
 
-## Запуск тестов
+## Требования
+
+- **Java 23** или выше
+- **Gradle 8.x** (или использовать встроенный `gradlew`)
+
+## Установка и запуск
+
+### 1. Клонирование репозитория
+
+```bash
+git clone git@github.com:JudexMars/heroes_student_task.git
+cd heroes_student_task
+```
+
+### 2. Сборка проекта
+
+```bash
+./gradlew build
+```
+
+### 3. Запуск тестов
 
 ```bash
 ./gradlew test
 ```
 
+Отчёт о тестах будет доступен в `build/reports/tests/test/index.html`.
+
+### 4. Интеграция с основной игрой
+
+Скомпилированные классы находятся в `build/classes/java/main/`.
+Также артфеакты собраны в heroes_student_task.jar
+
 ## Зависимости
 
-- Java 23
-- JUnit 5.10.0
-- Mockito 5.14.2
-- heroes_task_lib-1.0-SNAPSHOT.jar
+| Библиотека | Версия | Назначение |
+|------------|--------|------------|
+| Java | 23+ | Среда выполнения |
+| JUnit Jupiter | 5.10.0 | Юнит-тестирование |
+| Mockito | 5.14.2 | Мокирование в тестах |
+| heroes_task_lib | 1.0-SNAPSHOT | Библиотека игры (предоставлена) |
+
+Все зависимости автоматически загружаются через Gradle из Maven Central.
+Библиотека `heroes_task_lib-1.0-SNAPSHOT.jar` должна находиться в папке `libs/`.
 

@@ -6,12 +6,29 @@ import com.battle.heroes.army.programs.GeneratePreset;
 
 import java.util.*;
 
+/**
+ * Реализация генератора армии компьютера.
+ * <p>
+ * Использует жадный алгоритм для формирования максимально эффективной армии
+ * по соотношению атака/стоимость с учётом ограничений.
+ * <p>
+ * Алгоритмическая сложность: O(n × m), где n — количество типов юнитов, m — максимум юнитов на тип.
+ *
+ * @see GeneratePreset
+ */
 public class GeneratePresetImpl implements GeneratePreset {
 
     private static final int MAX_UNITS_PER_TYPE = 11;
     private static final int COMPUTER_ARMY_WIDTH = 3;  // Колонки x: 0, 1, 2
     private static final int FIELD_HEIGHT = 21;        // Строки y: 0-20
 
+    /**
+     * Генерирует армию компьютера с максимальной эффективностью.
+     *
+     * @param unitList  список шаблонов юнитов (по одному каждого типа)
+     * @param maxPoints максимальный бюджет очков для армии
+     * @return сформированная армия с юнитами и суммой очков
+     */
     @Override
     public Army generate(List<Unit> unitList, int maxPoints) {
         // 1. Сортируем типы юнитов по эффективности:

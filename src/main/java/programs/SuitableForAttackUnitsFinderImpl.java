@@ -6,6 +6,16 @@ import com.battle.heroes.army.programs.SuitableForAttackUnitsFinder;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Реализация поиска юнитов, доступных для атаки.
+ * <p>
+ * Определяет "открытых" юнитов противника, которые не закрыты союзниками.
+ * Для каждого ряда выбирает крайнего юнита (минимальный или максимальный y).
+ * <p>
+ * Алгоритмическая сложность: O(n), где n — общее количество юнитов.
+ *
+ * @see SuitableForAttackUnitsFinder
+ */
 public class SuitableForAttackUnitsFinderImpl implements SuitableForAttackUnitsFinder {
 
     /**
