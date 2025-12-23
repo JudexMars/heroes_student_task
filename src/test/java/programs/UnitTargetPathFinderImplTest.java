@@ -45,7 +45,7 @@ class UnitTargetPathFinderImplTest {
     }
 
     @Test
-    @DisplayName("Диагональный путь")
+    @DisplayName("Диагональный путь - оптимальный с учётом весов")
     void getTargetPath_diagonalPath_shouldFindShortest() {
         Unit attacker = createUnit("Attacker", 0, 0);
         Unit target = createUnit("Target", 3, 3);
@@ -54,8 +54,13 @@ class UnitTargetPathFinderImplTest {
 
         assertNotNull(path);
         assertFalse(path.isEmpty());
-        // Диагональный путь должен быть короче (4 шага вместо 6)
-        assertEquals(4, path.size()); // (0,0) -> (1,1) -> (2,2) -> (3,3)
+        // Диагональный путь: (0,0) -> (1,1) -> (2,2) -> (3,3) = 4 точки
+        assertEquals(4, path.size());
+        // Проверяем, что путь идёт по диагонали (оптимально)
+        assertEquals(0, path.get(0).getX());
+        assertEquals(0, path.get(0).getY());
+        assertEquals(3, path.get(3).getX());
+        assertEquals(3, path.get(3).getY());
     }
 
     @Test
